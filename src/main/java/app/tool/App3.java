@@ -17,10 +17,9 @@ import java.util.Map;
 import java.util.function.BiConsumer;
 import java.util.stream.Collectors;
 
-public class App1 {
+public class App3 {
 
-    //private static final String FILE_NAME = "C:\\Users\\njpsa\\Downloads\\Test1Bank.xlsx";
-    private static final String FILE_NAME = "D:\\Workspace\\aadhar-excel\\Test1Bank.xlsx";
+    private static final String FILE_NAME = "C:\\Users\\njpsa\\Downloads\\TestCreditSoc.xlsx";
     private static final String ORGANIZATION_TABLE = "tbl_organization_master";
     private static final String DISTRICT_TABLE = "tbl_district_master";
     private static final String BRANCH_TABLE = "tbl_branch_master";
@@ -197,12 +196,12 @@ public class App1 {
                             JsonObject b = new Gson().fromJson(branchString, JsonObject.class);
                             dataBranch.setBranchId(b.get("branch_id").getAsInt());
 
-                            /*//Update Taluka
+                            //Update Taluka
                             try {
                                 updateBranch(c, dataBranch);
                             } catch (SQLException throwables) {
                                 throwables.printStackTrace();
-                            }*/
+                            }
 
                             System.out.println("$$$$$$Branch Exists" + new Gson().toJson(dataBranch));
                         }
