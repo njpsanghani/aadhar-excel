@@ -20,7 +20,9 @@ import java.util.stream.Collectors;
 public class App1 {
 
     //private static final String FILE_NAME = "C:\\Users\\njpsa\\Downloads\\Test1Bank.xlsx";
-    private static final String FILE_NAME = "D:\\Workspace\\aadhar-excel\\Test1Bank.xlsx";
+    //private static final String FILE_NAME = "D:\\Workspace\\aadhar-excel\\Test1Bank.xlsx";
+    //private static final String FILE_NAME = "Bank_2020_06_08.xlsx";
+    private static final String FILE_NAME = "Book1_2020_06_09.xlsx";
     private static final String ORGANIZATION_TABLE = "tbl_organization_master";
     private static final String DISTRICT_TABLE = "tbl_district_master";
     private static final String BRANCH_TABLE = "tbl_branch_master";
@@ -82,7 +84,7 @@ public class App1 {
                         }
 
                         try {
-                            data.setBranchTaluka(currentRow.getCell(5).getStringCellValue().trim().toUpperCase().replace(".", "").replace(",", "").replace("\"", "").replace("'", "").replace(",", ""));
+                            data.setBranchTaluka(currentRow.getCell(5).getStringCellValue().trim().toUpperCase().replace("TA :-", "").replace(".", "").replace(",", "").replace("\"", "").replace("'", "").replace(",", ""));
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
