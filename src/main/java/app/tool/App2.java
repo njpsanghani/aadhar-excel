@@ -19,7 +19,8 @@ import java.util.stream.Collectors;
 
 public class App2 {
 
-    private static final String FILE_NAME = "C:\\Users\\njpsa\\Downloads\\TestCreditSoc.xlsx";
+    //private static final String FILE_NAME = "C:\\Users\\njpsa\\Downloads\\TestCreditSoc.xlsx";
+    private static final String FILE_NAME = "Credit_Society_2020_06_09.xlsx";
     private static final String ORGANIZATION_TABLE = "tbl_organization_master";
     private static final String DISTRICT_TABLE = "tbl_district_master";
     private static final String BRANCH_TABLE = "tbl_branch_master";
@@ -197,11 +198,11 @@ public class App2 {
                             dataBranch.setBranchId(b.get("branch_id").getAsInt());
 
                             //Update Taluka
-                            try {
+                           /* try {
                                 updateBranch(c, dataBranch);
                             } catch (SQLException throwables) {
                                 throwables.printStackTrace();
-                            }
+                            }*/
 
                             System.out.println("$$$$$$Branch Exists" + new Gson().toJson(dataBranch));
                         }
