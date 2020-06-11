@@ -21,8 +21,8 @@ public class App1 {
 
     //private static final String FILE_NAME = "C:\\Users\\njpsa\\Downloads\\Test1Bank.xlsx";
     //private static final String FILE_NAME = "D:\\Workspace\\aadhar-excel\\Test1Bank.xlsx";
-    //private static final String FILE_NAME = "Bank_2020_06_08.xlsx";
-    private static final String FILE_NAME = "Book1_2020_06_09.xlsx";
+    private static final String FILE_NAME = "Bank_2020_06_11.xlsx";
+    //private static final String FILE_NAME = "Book1_2020_06_09.xlsx";
     private static final String ORGANIZATION_TABLE = "tbl_organization_master";
     private static final String DISTRICT_TABLE = "tbl_district_master";
     private static final String BRANCH_TABLE = "tbl_branch_master";
@@ -370,8 +370,8 @@ public class App1 {
     public static Data insertUser(Connection connection, Data data) throws SQLException {
 
         String SQL = "" +
-                "INSERT INTO tbi_users( name, mobile_no, email_id, password, role_id, branch_id, username, org_id, district_id)" +
-                "VALUES ( ?,?,?,?,?,?,?,?,?)";
+                "INSERT INTO tbi_users( name, mobile_no, email_id, password, role_id, branch_id, username, org_id, district_id, is_allow_update_loan_status)" +
+                "VALUES ( ?,?,?,?,?,?,?,?,?,?)";
 
         PreparedStatement pstmt = connection.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
 
@@ -384,6 +384,7 @@ public class App1 {
         pstmt.setString(7, data.getUserUsername());
         pstmt.setInt(8, data.getOrganizationId());
         pstmt.setInt(9, data.getBranchDistrictId());
+        pstmt.setBoolean(10, true);
         int affectedRows = pstmt.executeUpdate();
 
         if (affectedRows == 0) {
