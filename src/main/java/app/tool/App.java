@@ -25,6 +25,7 @@ public class App {
     private static final String BRANCH_TABLE = "tbl_branch_master";
     private static final String USER_TABLE = "tbi_users";
     private static final String PASS = "$2a$10$3GOmZk/WR9hN/MXEvkhCtOBMaJusnrbAa3g9ywwWdwf2ctQUvNj5m";//ANGSY@123
+    //private static final String PASS = "$2a$10$gxduWOTRcMcOSFxtv0Qwz.3v4fK8D8QKwoW05P5mZ6Bu5x28wRUbS";//Angsy@RCS#2020
 
     public static void main(String[] args) {
         try {
@@ -367,8 +368,8 @@ public class App {
     public static Data insertUser(Connection connection, Data data) throws SQLException {
 
         String SQL = "" +
-                "INSERT INTO tbi_users( name, mobile_no, email_id, password, role_id, branch_id, username, org_id, district_id)" +
-                "VALUES ( ?,?,?,?,?,?,?,?,?)";
+                "INSERT INTO tbi_users( name, mobile_no, email_id, password, role_id, branch_id, username, org_id, district_id,is_allow_update_loan_status)" +
+                "VALUES ( ?,?,?,?,?,?,?,?,?,?)";
 
         PreparedStatement pstmt = connection.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
 
@@ -381,6 +382,7 @@ public class App {
         pstmt.setString(7, data.getUserUsername());
         pstmt.setInt(8, data.getOrganizationId());
         pstmt.setInt(9, data.getBranchDistrictId());
+        pstmt.setBoolean(10, true);
         int affectedRows = pstmt.executeUpdate();
 
         if (affectedRows == 0) {
