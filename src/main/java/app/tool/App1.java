@@ -28,7 +28,13 @@ public class App1 {
     //private static final String FILE_NAME = "Bank_Sheet_2020_06_10.xlsx";
     //private static final String FILE_NAME = "Bank_2020_06_10.xlsx";
     //private static final String FILE_NAME = "Bank_Sheet_2020_06_11_3.xlsx";
-    private static final String FILE_NAME = "Bank_2020_06_12.xlsx";
+    //private static final String FILE_NAME = "Bank_2020_06_12.xlsx";
+    //private static final String FILE_NAME = "Bank_2020_06_16.xlsx";
+    //private static final String FILE_NAME = "Bank_2020_06_17.xlsx";
+    //private static final String FILE_NAME = "Bank_2020_06_19.xlsx";
+    //private static final String FILE_NAME = "Bank_2020_06_20.xlsx";
+    //private static final String FILE_NAME = "Bank_2020_06_25.xlsx";
+    private static final String FILE_NAME = "Bank_2020_06_29.xlsx";
     private static final String ORGANIZATION_TABLE = "tbl_organization_master";
     private static final String DISTRICT_TABLE = "tbl_district_master";
     private static final String BRANCH_TABLE = "tbl_branch_master";
@@ -71,8 +77,11 @@ public class App1 {
                                 data.setOrganizationTypeId(4);
                             } else {
 
-                                if(currentRow.getCell(10).getStringCellValue().trim().equals("Urban Cooperative Bank")){
-                                data.setOrganizationTypeId(1);}else {
+                                if (currentRow.getCell(10).getStringCellValue().trim().equals("Urban Cooperative Bank")) {
+                                    data.setOrganizationTypeId(1);
+                                } else if (currentRow.getCell(10).getStringCellValue().trim().equals("District Cooperative Bank")) {
+                                    data.setOrganizationTypeId(4);
+                                } else {
                                     data.setOrganizationTypeId(2);
                                 }
                             }
@@ -326,10 +335,10 @@ public class App1 {
         pstmt.setString(2, data.getBranchAddress());
         pstmt.setInt(3, data.getOrganizationId());
         pstmt.setInt(4, data.getBranchDistrictId());
-        if (data.getBranchTaluka()!=null){
+        if (data.getBranchTaluka() != null) {
             pstmt.setString(5, data.getBranchTaluka());
-        }else {
-            pstmt.setNull(5,Types.VARCHAR);
+        } else {
+            pstmt.setNull(5, Types.VARCHAR);
         }
 
 

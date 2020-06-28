@@ -32,6 +32,7 @@ public class Data {
    @Getter @Setter @SerializedName("mobile_no") private String organizationMobileNo;
    @Getter @Setter @SerializedName("email_id") private String organizationEmailId;
    @Getter @Setter @SerializedName("organization_type_id") private int organizationTypeId;
+   @Getter @Setter @SerializedName("organization_district_id") private int organizationDistrictId;
 
     /*CREATE TABLE public.tbl_branch_master
 (
