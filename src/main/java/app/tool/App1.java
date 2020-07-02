@@ -34,7 +34,8 @@ public class App1 {
     //private static final String FILE_NAME = "Bank_2020_06_19.xlsx";
     //private static final String FILE_NAME = "Bank_2020_06_20.xlsx";
     //private static final String FILE_NAME = "Bank_2020_06_25.xlsx";
-    private static final String FILE_NAME = "Bank_2020_06_29.xlsx";
+    //private static final String FILE_NAME = "Bank_2020_06_29.xlsx";
+    private static final String FILE_NAME = "Bank_2020_07_02.xlsx";
     private static final String ORGANIZATION_TABLE = "tbl_organization_master";
     private static final String DISTRICT_TABLE = "tbl_district_master";
     private static final String BRANCH_TABLE = "tbl_branch_master";
@@ -87,6 +88,7 @@ public class App1 {
                             }
                         } catch (Exception e) {
                             e.printStackTrace();
+                            data.setOrganizationTypeId(2);
                         }
 
                         //data.setBranchId();
