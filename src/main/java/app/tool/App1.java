@@ -37,7 +37,14 @@ public class App1 {
     //private static final String FILE_NAME = "Bank_2020_06_29.xlsx";
     //private static final String FILE_NAME = "Bank_2020_07_02.xlsx";
     //private static final String FILE_NAME = "Bank_2020_07_06.xlsx";
-    private static final String FILE_NAME = "Bank_2020_07_08.xlsx";
+    //private static final String FILE_NAME = "Bank_2020_07_08.xlsx";ss
+    //private static final String FILE_NAME = "Bank_2020_07_09.xlsx";
+    //private static final String FILE_NAME = "Bank_2020_07_13.xlsx";
+    //private static final String FILE_NAME = "Bank_2020_07_14.xlsx";
+    //private static final String FILE_NAME = "Bank_2020_07_16.xlsx";
+    //private static final String FILE_NAME = "Bank_2020_07_17.xlsx";
+    //private static final String FILE_NAME = "Bank_2020_07_20.xlsx";
+    private static final String FILE_NAME = "Bank_2020_07_23.xlsx";
     private static final String ORGANIZATION_TABLE = "tbl_organization_master";
     private static final String DISTRICT_TABLE = "tbl_district_master";
     private static final String BRANCH_TABLE = "tbl_branch_master";
