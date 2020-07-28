@@ -73,6 +73,9 @@ public class App1 {
                     Data data = new Data();
 
                     //data.setOrganizationId();
+
+
+
                     try {
                         try {
                             data.setOrganizationName(currentRow.getCell(1).getStringCellValue().trim().replace(".", "").replace(",", "").replace("\"", "").replace("'", "").replace(",", ""));
@@ -98,6 +101,11 @@ public class App1 {
                         } catch (Exception e) {
                             e.printStackTrace();
                             data.setOrganizationTypeId(2);
+                        }
+                        try {
+                            data.setOrganizationDistrictName(currentRow.getCell(2, Row.MissingCellPolicy.RETURN_BLANK_AS_NULL).getStringCellValue().trim().replace(",", "").replace("\"", "").replace("'", ""));
+                        } catch (Exception e) {
+                            e.printStackTrace();
                         }
 
                         //data.setBranchId();
@@ -187,6 +195,17 @@ public class App1 {
                     String org = selectAsJson(c, ORGANIZATION_TABLE + " where organizations_name = '" + s + "'"/*++" and organization_type_id = " + dataOrg.getOrganizationTypeId()*/);
                     if (org == null) {
                         try {
+
+                            String orgDistrict = selectAsJson(c, DISTRICT_TABLE + " where district_name = '" + dataOrg.getOrganizationDistrictName() + "'");
+
+                            if (orgDistrict == null) {
+                                // TODO: 05-06-2020 Insert District
+                            } else {
+                                int districtId = new Gson().fromJson(orgDistrict, JsonObject.class).get("district_id").getAsInt();
+                                dataOrg.setOrganizationDistrictId(districtId);
+                            }
+
+
                             dataOrg = insertOrganization(c, dataOrg);
                             System.out.println("--Inserted Org " + new Gson().toJson(dataOrg));
                         } catch (SQLException throwables) {
@@ -309,13 +328,14 @@ public class App1 {
     public static Data insertOrganization(Connection connection, Data data) throws SQLException {
 
         String SQL = "" +
-                "INSERT INTO tbl_organization_master( organizations_name, organization_type_id)" +
-                "VALUES ( ?, ?)";
+                "INSERT INTO tbl_organization_master( organizations_name, organization_type_id,organization_district_id)" +
+                "VALUES ( ?, ?, ?)";
 
         PreparedStatement pstmt = connection.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
 
         pstmt.setString(1, data.getOrganizationName());
         pstmt.setInt(2, data.getOrganizationTypeId());
+        pstmt.setInt(3, data.getOrganizationDistrictId());
 
         int affectedRows = pstmt.executeUpdate();
 
