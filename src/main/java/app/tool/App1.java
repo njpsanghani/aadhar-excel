@@ -46,7 +46,8 @@ public class App1 {
     //private static final String FILE_NAME = "Bank_2020_07_20.xlsx";
     //private static final String FILE_NAME = "Bank_2020_07_23.xlsx";
     //private static final String FILE_NAME = "Bank_2020_07_27.xlsx";
-    private static final String FILE_NAME = "Bank_2020_07_31.xlsx";
+    //private static final String FILE_NAME = "Bank_2020_07_31.xlsx";
+    private static final String FILE_NAME = "Bank_2020_08_06.xlsx";
     private static final String ORGANIZATION_TABLE = "tbl_organization_master";
     private static final String DISTRICT_TABLE = "tbl_district_master";
     private static final String BRANCH_TABLE = "tbl_branch_master";
@@ -202,6 +203,7 @@ public class App1 {
 
                             if (orgDistrict == null) {
                                 // TODO: 05-06-2020 Insert District
+                                System.out.println("*********District not present for Org");
                             } else {
                                 int districtId = new Gson().fromJson(orgDistrict, JsonObject.class).get("district_id").getAsInt();
                                 dataOrg.setOrganizationDistrictId(districtId);
@@ -231,6 +233,7 @@ public class App1 {
 
                         if (district == null) {
                             // TODO: 05-06-2020 Insert District
+                            System.out.println("*********District not present for Branch");
                         } else {
                             int districtId = new Gson().fromJson(district, JsonObject.class).get("district_id").getAsInt();
                             dataBranch.setBranchDistrictId(districtId);
