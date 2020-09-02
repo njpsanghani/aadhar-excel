@@ -49,7 +49,8 @@ public class App1 {
     //private static final String FILE_NAME = "Bank_2020_07_31.xlsx";
     //private static final String FILE_NAME = "Bank_2020_08_06.xlsx";
     //private static final String FILE_NAME = "Bank_2020_08_13.xlsx";
-    private static final String FILE_NAME = "Bank_2020_08_21.xlsx";
+    //private static final String FILE_NAME = "Bank_2020_08_21.xlsx";
+    private static final String FILE_NAME = "Bank_2020_08_27.xlsx";
     private static final String ORGANIZATION_TABLE = "tbl_organization_master";
     private static final String DISTRICT_TABLE = "tbl_district_master";
     private static final String BRANCH_TABLE = "tbl_branch_master";
